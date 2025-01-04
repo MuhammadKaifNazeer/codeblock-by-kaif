@@ -1,5 +1,5 @@
 import { CodeBlockWithoutExtendCollapseButtons } from "@/components/Examples/codeBlockWithoutExtendCollapseButtons";
-import { ThemeToggle } from "@/components/ThemeToggler";
+import HeroSection from "@/components/HeroSection";
 import { CodeBlockDemo } from "@/components/codeBlock";
 import { CodeBlockFifth } from "@/components/codeBlockFifth";
 import { CodeBlockFourth } from "@/components/codeBlockFourth";
@@ -9,7 +9,7 @@ import { CodeBlockThird } from "@/components/codeBlockThird";
 export default function Home() {
   return (
     <div className="max-w-3xl mx-auto p-4 space-y-4">
-      <ThemeToggle />
+      <HeroSection />
       <CodeBlockDemo />
       <CodeBlockDemoSecond />
       <CodeBlockThird />

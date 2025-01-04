@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import { useTheme } from "next-themes";
