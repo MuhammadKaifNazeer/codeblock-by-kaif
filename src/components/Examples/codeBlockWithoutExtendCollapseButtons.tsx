@@ -4,8 +4,8 @@ import React from "react";
 
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function CodeBlockFifth() {
-  const code = `const DummyComponent = () => {
+export function CodeBlockWithoutExtendCollapseButtons() {
+    const code = `const DummyComponent = () => {
   const [count, setCount] = React.useState(0);
 
   const handleClick = () => {
@@ -47,15 +47,14 @@ const DummyComponent = () => {
   };
 `;
 
-  return (
-    <div className="max-w-3xl mx-auto w-full">
-      <CodeBlock
-        language="jsx"
-        highlightLines={[9, 13, 14, 18]}
-        code={code}
-        showLineNumbers={false}
-        copyButtonVisibility={"onHover"}
-      />
-    </div>
-  );
+    return (
+        <div className="max-w-3xl mx-auto w-full">
+            <CodeBlock
+                language="jsx"
+                highlightLines={[9, 13, 14, 18]}
+                code={code}
+                showExpandCollapseButtons={false}
+            />
+        </div>
+    );
 }

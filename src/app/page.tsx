@@ -1,3 +1,4 @@
+import { CodeBlockWithoutExtendCollapseButtons } from "@/components/Examples/codeBlockWithoutExtendCollapseButtons";
 import { ThemeToggle } from "@/components/ThemeToggler";
 import { CodeBlockDemo } from "@/components/codeBlock";
 import { CodeBlockFifth } from "@/components/codeBlockFifth";
@@ -14,6 +15,7 @@ export default function Home() {
       <CodeBlockThird />
       <CodeBlockFourth />
       <CodeBlockFifth />
+      <CodeBlockWithoutExtendCollapseButtons />
     </div>
   );
 }

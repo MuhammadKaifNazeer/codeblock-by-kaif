@@ -6,7 +6,7 @@ import { atomDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/pri
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import { useTheme } from "next-themes";
-import { Check, ChevronDown, ChevronUp, Copy } from 'lucide-react';
+import { Check, ChevronDown, ChevronUp, Copy, Loader2 } from 'lucide-react';
 
 type CodeBlockProps = {
     language: string;
@@ -50,9 +50,13 @@ export const CodeBlock = ({
     const { theme, resolvedTheme } = useTheme();
     const [currentTheme, setCurrentTheme] = useState<string | undefined>();
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(() => {
         setCurrentTheme(resolvedTheme || theme);
+
+        const timer = setTimeout(() => setIsLoading(false), 1000);
     }, [theme, resolvedTheme]);
 
     const isDarkTheme = currentTheme === "dark";
@@ -89,113 +93,121 @@ export const CodeBlock = ({
 
     return (
         <div className="relative w-full rounded-lg bg-background border font-mono text-sm overflow-hidden group">
-            {tabsExist && (
-                <div className="flex flex-col gap-2 px-2 py-2 bg-card border-b">
-                    <div className="flex items-center justify-between gap-2 w-full">
-                        <ScrollArea className="flex">
-                            <div className="flex w-max">
-                                {tabs.map((tab, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => setActiveTab(index)}
-                                        className={`px-3 !py-2 text-xs transition-colors font-sans ${activeTab === index
-                                            ? ""
-                                            : "text-muted-foreground hover:text-black dark:hover:text-white"
-                                            }`}
-                                    >
-                                        {tab.name}
-                                    </button>
-                                ))}
+            {isLoading ? (
+                <div className="min-h-32 w-full flex items-center justify-center">
+                    <Loader2 className="h-6 w-6 animate-spin" />
+                </div>
+            ) : (
+                <>
+                    {tabsExist && (
+                        <div className="flex flex-col gap-2 px-2 py-2 bg-card border-b">
+                            <div className="flex items-center justify-between gap-2 w-full">
+                                <ScrollArea className="flex">
+                                    <div className="flex w-max">
+                                        {tabs.map((tab, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => setActiveTab(index)}
+                                                className={`px-3 !py-2 text-xs transition-colors font-sans ${activeTab === index
+                                                    ? ""
+                                                    : "text-muted-foreground hover:text-black dark:hover:text-white"
+                                                    }`}
+                                            >
+                                                {tab.name}
+                                            </button>
+                                        ))}
+                                    </div>
+                                    <ScrollBar orientation="horizontal" />
+                                </ScrollArea>
+                                {copyButton && (
+                                    <CopyButton
+                                        copied={copied}
+                                        onCopy={copyToClipboard}
+                                        visibilityMode={copyButtonVisibility}
+                                    />
+                                )}
                             </div>
-                            <ScrollBar orientation="horizontal" />
-                        </ScrollArea>
-                        {copyButton && (
-                            <CopyButton
-                                copied={copied}
-                                onCopy={copyToClipboard}
-                                visibilityMode={copyButtonVisibility}
-                            />
-                        )}
-                    </div>
-                </div>
-            )}
-            {!tabsExist && filename && (
-                <div className="flex flex-col gap-2 pl-4 pr-2 py-2 bg-card border-b">
-                    <div className="flex justify-between items-center">
-                        <div className="text-xs text-muted-foreground">{filename}</div>
-                        {copyButton && (
-                            <CopyButton
-                                copied={copied}
-                                onCopy={copyToClipboard}
-                                visibilityMode={copyButtonVisibility}
-                            />
-                        )}
-                    </div>
-                </div>
-            )}
-            {!tabsExist && !filename && copyButton && (
-                <CopyButton
-                    copied={copied}
-                    onCopy={copyToClipboard}
-                    visibilityMode={copyButtonVisibility}
-                    positionClass={positionClass}
-                />
-            )}
-            <div
-                className="overflow-hidden transition-all duration-300"
-                style={{
-                    maxHeight: isExpanded ? "none" : "27rem",
-                    transition: "max-height 0.3s ease",
-                }}
-            >
-                <SyntaxHighlighter
-                    language={activeLanguage}
-                    style={isDarkTheme ? atomDark : undefined}
-                    customStyle={{
-                        margin: 0,
-                        padding: showLineNumbers ? "0.5rem" : "1rem",
-                        background: "transparent",
-                        fontSize: "0.875rem",
-                    }}
-                    wrapLines={true}
-                    showLineNumbers={showLineNumbers}
-                    lineProps={(lineNumber) => ({
-                        style: {
-                            backgroundColor: activeHighlightLines.includes(lineNumber)
-                                ? isDarkTheme
-                                    ? "rgba(255,255,255,0.1)"
-                                    : "#f0f0f0"
-                                : "transparent",
-                            display: "block",
-                            width: "100%",
-                        },
-                    })}
-                    PreTag="div"
-                >
-                    {String(activeCode)}
-                </SyntaxHighlighter>
-            </div>
-
-            {shouldShowButtons && showExpandCollapseButtons && (
-                <div className="absolute bottom-0 left-0 flex items-center justify-center w-full py-2 gap-2">
-                    {!isExpanded ? (
-                        <Button
-                            variant={buttonVariant}
-                            onClick={() => setIsExpanded(true)}
-                            className="text-xs font-semibold flex items-center gap-2 border"
-                        >
-                            Expand <ChevronDown size={14} />
-                        </Button>
-                    ) : (
-                        <Button
-                            variant={buttonVariant}
-                            onClick={() => setIsExpanded(false)}
-                            className="text-xs font-semibold flex items-center gap-2 border"
-                        >
-                            Collapse <ChevronUp size={14} />
-                        </Button>
+                        </div>
                     )}
-                </div>
+                    {!tabsExist && filename && (
+                        <div className="flex flex-col gap-2 pl-4 pr-2 py-2 bg-card border-b">
+                            <div className="flex justify-between items-center">
+                                <div className="text-xs text-muted-foreground">{filename}</div>
+                                {copyButton && (
+                                    <CopyButton
+                                        copied={copied}
+                                        onCopy={copyToClipboard}
+                                        visibilityMode={copyButtonVisibility}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                    )}
+                    {!tabsExist && !filename && copyButton && (
+                        <CopyButton
+                            copied={copied}
+                            onCopy={copyToClipboard}
+                            visibilityMode={copyButtonVisibility}
+                            positionClass={positionClass}
+                        />
+                    )}
+                    <div
+                        className="overflow-hidden transition-all duration-300"
+                        style={{
+                            maxHeight: isExpanded ? "none" : "27rem",
+                            transition: "max-height 0.3s ease",
+                        }}
+                    >
+                        <SyntaxHighlighter
+                            language={activeLanguage}
+                            style={isDarkTheme ? atomDark : undefined}
+                            customStyle={{
+                                margin: 0,
+                                padding: showLineNumbers ? "0.5rem" : "1rem",
+                                background: "transparent",
+                                fontSize: "0.875rem",
+                            }}
+                            wrapLines={true}
+                            showLineNumbers={showLineNumbers}
+                            lineProps={(lineNumber) => ({
+                                style: {
+                                    backgroundColor: activeHighlightLines.includes(lineNumber)
+                                        ? isDarkTheme
+                                            ? "rgba(255,255,255,0.1)"
+                                            : "#f0f0f0"
+                                        : "transparent",
+                                    display: "block",
+                                    width: "100%",
+                                },
+                            })}
+                            PreTag="div"
+                        >
+                            {String(activeCode)}
+                        </SyntaxHighlighter>
+                    </div>
+
+                    {shouldShowButtons && showExpandCollapseButtons && (
+                        <div className="absolute bottom-0 left-0 flex items-center justify-center w-full py-2 gap-2">
+                            {!isExpanded ? (
+                                <Button
+                                    variant={buttonVariant}
+                                    onClick={() => setIsExpanded(true)}
+                                    className="text-xs font-semibold flex items-center gap-2 border"
+                                >
+                                    Expand <ChevronDown size={14} />
+                                </Button>
+                            ) : (
+                                <Button
+                                    variant={buttonVariant}
+                                    onClick={() => setIsExpanded(false)}
+                                    className="text-xs font-semibold flex items-center gap-2 border"
+                                >
+                                    Collapse <ChevronUp size={14} />
+                                </Button>
+                            )}
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
@@ -222,9 +234,21 @@ const CopyButton = ({
             onClick={onCopy}
             variant="outline"
             size="icon"
-            className={`text-xs shrink-0 ${positionClass} ${visibilityClass}`}
+            className={`text-xs shrink-0 relative ${positionClass} ${visibilityClass}`}
         >
-            {copied ? <Check size={14} /> : <Copy size={14} />}
+            <span
+                className={`transition-all absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] ${copied ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
+            >
+                <Check
+                    className="stroke-emerald-500"
+                    size={14}
+                />
+            </span>
+            <span
+                className={`transition-all absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] ${copied ? "scale-0 opacity-0" : "scale-100 opacity-100"}`}
+            >
+                <Copy size={14} />
+            </span>
         </Button>
     );
 };
