@@ -80,8 +80,16 @@ export const CodeBlock = ({
         ? tabs[activeTab].highlightLines || []
         : highlightLines;
 
-    const positionClass = "absolute top-2 right-2";
+
     const codeLines = activeCode?.split("\n") || [];
+    const oneLiner = codeLines.length === 1
+
+    if (oneLiner) {
+        showLineNumbers = false
+    }
+
+    const positionClass = "absolute top-2 right-2";
+
     const shouldShowButtons = codeLines.length > 20;
 
     useEffect(() => {
