@@ -5,7 +5,7 @@ export function CodeBlockWithoutLineNumbers() {
     const code = `import React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function CodeBlockExample() {
+export function CodeBlockWithoutLineNumbers() {
     const code = \`import React from "react";
 
     const HomePage = () => {
@@ -23,6 +23,7 @@ export function CodeBlockExample() {
             language="jsx"
             filename="CodeBlockWithoutLineNumbers.jsx"
             code={code}
+            showLineNumbers={false}
         />
     );
 }`;
@@ -32,6 +33,7 @@ export function CodeBlockExample() {
             language="jsx"
             filename="CodeBlockWithoutLineNumbers.jsx"
             code={code}
+            showLineNumbers={false}
         />
     );
 }

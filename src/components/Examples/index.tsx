@@ -4,6 +4,7 @@ import { OneLinerCodeBlock } from './oneLinerCodeBlock';
 import { TabsCodeBlock } from './tabsCodeBlock';
 import { HightlighterCodeBlock } from './highlighterCodeBlock';
 import { CodeBlockWithoutFileName } from './codeBlockWithoutFIleName';
+import { CodeBlockWithoutLineNumbers } from './codeBlockWithoutLineNumbers';
 
 const Examples = () => {
     return (
@@ -13,6 +14,7 @@ const Examples = () => {
             <TabsCodeBlock />
             <HightlighterCodeBlock />
             <CodeBlockWithoutFileName />
+            <CodeBlockWithoutLineNumbers />
         </div>
     )
 }
