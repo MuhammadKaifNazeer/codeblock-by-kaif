@@ -31,8 +31,8 @@ export function UsageExampleCodeBlock() {
 
     return (
         <CodeBlock
-            language="ts"
-            filename="lib/utils.ts"
+            language="tsx"
+            filename="ExampleComponent.tsx"
             code={code}
             showLineNumbers={false}
         />
