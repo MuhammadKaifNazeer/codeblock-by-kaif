@@ -1,60 +1,56 @@
-"use client";
-
 import React from "react";
-
 import { CodeBlock } from "@/components/ui/code-block";
 
 export function CodeBlockWithoutExtendCollapseButtons() {
-    const code = `const DummyComponent = () => {
-  const [count, setCount] = React.useState(0);
+  const code = `import React from "react";
+import { CodeBlock } from "@/components/ui/code-block";
 
-  const handleClick = () => {
-    setCount(prev => prev + 1);
-  };
+export function CodeBlockWithoutExtendCollapseButtons() {
+    
+const code = \`import React, { useState } from 'react';
+
+interface ToggleButtonProps {
+  label: string;
+}
+
+interface ToggleState {
+  isOn: boolean;
+}
+
+const ToggleButton: React.FC<ToggleButtonProps> = ({ label }) => {
+  const [state, setState] = useState<ToggleState>({ isOn: false });
+
+  const toggle = () => setState({ isOn: !state.isOn });
 
   return (
-    <div className="p-4 border rounded-lg">
-      <h2 className="text-xl font-bold mb-4">Fights Counter</h2>
-      <p className="mb-2">Fight Club Fights Count: {count}</p>
-      <button 
-        onClick={handleClick}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" 
-      >
-        Increment
-      </button>
+    <div>
+      <p>{label}: {state.isOn ? 'ON' : 'OFF'}</p>
+      <button onClick={toggle}>Toggle</button>
     </div>
   );
 };
-const DummyComponent = () => {
-    const [count, setCount] = React.useState(0);
-  
-    const handleClick = () => {
-      setCount(prev => prev + 1);
-    };
-  
-    return (
-      <div className="p-4 border rounded-lg">
-        <h2 className="text-xl font-bold mb-4">Fights Counter</h2>
-        <p className="mb-2">Fight Club Fights Count: {count}</p>
-        <button 
-          onClick={handleClick}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" 
-        >
-          Increment
-        </button>
-      </div>
-    );
-  };
-`;
+
+export default ToggleButton;\`
+
 
     return (
-        <div className="max-w-3xl mx-auto w-full">
-            <CodeBlock
-                language="jsx"
-                highlightLines={[9, 13, 14, 18]}
-                code={code}
-                showExpandCollapseButtons={false}
-            />
-        </div>
+        <CodeBlock
+            language="jsx"
+            filename="CodeBlockWithoutExtendCollapseButtons.jsx"
+            code={code}
+            buttonVariant={"default"}
+        />
     );
+}`;
+
+
+  return (
+    <CodeBlock
+      language="jsx"
+      filename="CodeBlockWithoutExtendCollapseButtons.jsx"
+      code={code}
+      showExpandCollapseButtons={false}
+    />
+  );
 }
+
