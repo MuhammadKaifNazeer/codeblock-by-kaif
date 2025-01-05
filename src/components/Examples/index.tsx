@@ -5,6 +5,7 @@ import { TabsCodeBlock } from './tabsCodeBlock';
 import { HightlighterCodeBlock } from './highlighterCodeBlock';
 import { CodeBlockWithoutFileName } from './codeBlockWithoutFIleName';
 import { CodeBlockWithoutLineNumbers } from './codeBlockWithoutLineNumbers';
+import { CodeBlockWithoutCopyButton } from './codeBlockWithoutCopyButton';
 
 const Examples = () => {
     return (
@@ -15,6 +16,7 @@ const Examples = () => {
             <HightlighterCodeBlock />
             <CodeBlockWithoutFileName />
             <CodeBlockWithoutLineNumbers />
+            <CodeBlockWithoutCopyButton />
         </div>
     )
 }
