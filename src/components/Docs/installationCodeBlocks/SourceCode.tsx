@@ -1,5 +1,9 @@
+import React from "react";
 
-"use client";
+import { CodeBlock } from "@/components/ui/code-block";
+
+export function SourceCodeCodeBlock() {
+    const code = `"use client";
 
 import React, { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -262,4 +266,14 @@ const CopyButton = ({
             </span>
         </Button>
     );
-};
+};`;
+
+    return (
+        <CodeBlock
+            language="tsx"
+            filename="components/ui/code-block-tsx"
+            code={code}
+            showLineNumbers={false}
+        />
+    );
+}

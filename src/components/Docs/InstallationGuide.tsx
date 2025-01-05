@@ -1,11 +1,11 @@
 import React from 'react'
 import { CodeBlock } from '../ui/code-block'
 import { Steps, Step } from '@/components/ui/steps';
-// import { UtilFileCodeBlock } from './installationCodeBlocks/utilFile';
-// import { SourceCodeCodeBlock } from './installationCodeBlocks/SourceCode';
-// import { ThemProviderCodeBlock } from './installationCodeBlocks/ThemeProvider';
-// import { RootLayoutCodeBlock } from './installationCodeBlocks/RootLayout';
-// import { UsageExampleCodeBlock } from './installationCodeBlocks/UsageExample';
+import { UtilFileCodeBlock } from './installationCodeBlocks/utilFile';
+import { ThemProviderCodeBlock } from './installationCodeBlocks/ThemeProvider';
+import { RootLayoutCodeBlock } from './installationCodeBlocks/RootLayout';
+import { SourceCodeCodeBlock } from './installationCodeBlocks/SourceCode';
+import { UsageExampleCodeBlock } from './installationCodeBlocks/UsageExample';
 
 const InstallationGuide = () => {
 
@@ -35,28 +35,28 @@ const InstallationGuide = () => {
                     <Step title="Add util file">
                         Add a utility file that provides helper functions for integration and makes the setup smoother. This file contains crucial utility functions for the application:
                         <div className='mt-4'>
-                            {/* <UtilFileCodeBlock /> */}
+                            <UtilFileCodeBlock />
                         </div>
                     </Step>
                     <Step title="Setup Next Themes">
                         Set up the Next.js theme provider to manage themes such as light and dark modes efficiently throughout your application:
                         <div className='mt-4'>
-                            {/* <ThemProviderCodeBlock /> */}
+                            <ThemProviderCodeBlock />
                         </div>
                         <div className='mt-4'>
-                            {/* <RootLayoutCodeBlock /> */}
+                            <RootLayoutCodeBlock />
                         </div>
                     </Step>
                     <Step title="Copy the source code">
                         Copy the source code from the provided code block into your project. This step will ensure the core functionality is integrated properly:
                         <div className='mt-4'>
-                            {/* <SourceCodeCodeBlock /> */}
+                            <SourceCodeCodeBlock />
                         </div>
                     </Step>
                     <Step title="Use CodeBlock">
                         Implement the `CodeBlock` component for displaying code snippets in your project. This component will allow you to showcase code with syntax highlighting:
                         <div className='mt-4'>
-                            {/* <UsageExampleCodeBlock /> */}
+                            <UsageExampleCodeBlock />
                         </div>
                     </Step>
                 </Steps>
