@@ -1,20 +1,18 @@
 import React from 'react'
-import { CodeBlockDemo } from "@/components/codeBlock";
-import { CodeBlockFifth } from "@/components/codeBlockFifth";
-import { CodeBlockFourth } from "@/components/codeBlockFourth";
-import { CodeBlockDemoSecond } from "@/components/codeBlockSecond";
-import { CodeBlockThird } from "@/components/codeBlockThird";
-import { CodeBlockWithoutExtendCollapseButtons } from './codeBlockWithoutExtendCollapseButtons';
+import { CodeBlockExample } from './codeBlockExample';
+import { OneLinerCodeBlock } from './oneLinerCodeBlock';
+import { TabsCodeBlock } from './tabsCodeBlock';
+import { HightlighterCodeBlock } from './highlighterCodeBlock';
+import { CodeBlockWithoutFileName } from './codeBlockWithoutFIleName';
 
 const Examples = () => {
     return (
         <div className='mt-5 space-y-4'>
-            <CodeBlockDemo />
-            <CodeBlockDemoSecond />
-            <CodeBlockThird />
-            <CodeBlockFourth />
-            <CodeBlockFifth />
-            <CodeBlockWithoutExtendCollapseButtons />
+            <OneLinerCodeBlock />
+            <CodeBlockExample />
+            <TabsCodeBlock />
+            <HightlighterCodeBlock />
+            <CodeBlockWithoutFileName />
         </div>
     )
 }

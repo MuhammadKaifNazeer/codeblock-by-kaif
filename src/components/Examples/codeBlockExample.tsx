@@ -1,12 +1,11 @@
 import React from "react";
-
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function UsageExampleCodeBlock() {
+export function CodeBlockExample() {
     const code = `import React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function UsageExampleCodeBlock() {
+export function CodeBlockExample() {
     const code = \`import React from "react";
 
     const HomePage = () => {
@@ -17,22 +16,22 @@ export function UsageExampleCodeBlock() {
         );
     };
 
-    export default HomePage; \`;
+    export default HomePage;\`;
 
     return (
         <CodeBlock
             language="jsx"
-            filename="ExampleComponent.jsx"
+            filename="ExampleCodeBlock.jsx"
+            code={code}
         />
     );
 }`;
 
     return (
         <CodeBlock
-            language="tsx"
-            filename="ExampleComponent.tsx"
+            language="jsx"
+            filename="ExampleComponent.jsx"
             code={code}
-            showLineNumbers={false}
         />
     );
 }
