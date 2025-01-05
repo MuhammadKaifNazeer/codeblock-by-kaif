@@ -166,32 +166,35 @@ export const CodeBlock = ({
                             transition: "max-height 0.3s ease",
                         }}
                     >
-                        <SyntaxHighlighter
-                            language={activeLanguage}
-                            style={isDarkTheme ? atomDark : undefined}
-                            customStyle={{
-                                margin: 0,
-                                padding: showLineNumbers ? "0.5rem" : "1rem",
-                                background: "transparent",
-                                fontSize: "0.875rem",
-                            }}
-                            wrapLines={true}
-                            showLineNumbers={showLineNumbers}
-                            lineProps={(lineNumber) => ({
-                                style: {
-                                    backgroundColor: activeHighlightLines.includes(lineNumber)
-                                        ? isDarkTheme
-                                            ? "rgba(255,255,255,0.1)"
-                                            : "#f0f0f0"
-                                        : "transparent",
-                                    display: "block",
-                                    width: "100%",
-                                },
-                            })}
-                            PreTag="div"
-                        >
-                            {String(activeCode)}
-                        </SyntaxHighlighter>
+                        <ScrollArea>
+                            <SyntaxHighlighter
+                                language={activeLanguage}
+                                style={isDarkTheme ? atomDark : undefined}
+                                customStyle={{
+                                    margin: 0,
+                                    padding: showLineNumbers ? "0.5rem" : "1rem",
+                                    background: "transparent",
+                                    fontSize: "0.875rem",
+                                }}
+                                wrapLines={true}
+                                showLineNumbers={showLineNumbers}
+                                lineProps={(lineNumber) => ({
+                                    style: {
+                                        backgroundColor: activeHighlightLines.includes(lineNumber)
+                                            ? isDarkTheme
+                                                ? "rgba(255,255,255,0.1)"
+                                                : "#f0f0f0"
+                                            : "transparent",
+                                        display: "block",
+                                        width: "100%",
+                                    },
+                                })}
+                                PreTag="div"
+                            >
+                                {String(activeCode)}
+                            </SyntaxHighlighter>
+                            <ScrollBar orientation="horizontal" />
+                        </ScrollArea>
                     </div>
 
                     {shouldShowButtons && showExpandCollapseButtons && (
@@ -242,7 +245,7 @@ const CopyButton = ({
             onClick={onCopy}
             variant="outline"
             size="icon"
-            className={`text-xs shrink-0 relative ${positionClass} ${visibilityClass}`}
+            className={`text-xs z-[2] shrink-0 relative ${positionClass} ${visibilityClass}`}
         >
             <span
                 className={`transition-all absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] ${copied ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
