@@ -20,7 +20,7 @@ export default BlogPage\`;
         <CodeBlock
             language="jsx"
             code={code}
-            copyButton={false}
+            copyButtonVisibility={"onHover"}
         />
     );
 }`;
