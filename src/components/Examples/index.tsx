@@ -7,6 +7,7 @@ import { CodeBlockWithoutFileName } from './codeBlockWithoutFIleName';
 import { CodeBlockWithoutLineNumbers } from './codeBlockWithoutLineNumbers';
 import { CodeBlockWithoutCopyButton } from './codeBlockWithoutCopyButton';
 import { OnHoverCopyButtonCodeBlock } from './onHoverCopyButtonCodeBlock';
+import { ButtonVariantsCodeBlock } from './buttonVariantsCodeBlock';
 
 const Examples = () => {
     return (
@@ -18,7 +19,8 @@ const Examples = () => {
             <CodeBlockWithoutFileName />
             <CodeBlockWithoutLineNumbers />
             <CodeBlockWithoutCopyButton />
-            <OnHoverCopyButtonCodeBlock/>
+            <OnHoverCopyButtonCodeBlock />
+            <ButtonVariantsCodeBlock />
         </div>
     )
 }
