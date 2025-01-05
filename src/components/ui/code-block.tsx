@@ -100,7 +100,7 @@ export const CodeBlock = ({
     }, [showExpandCollapseButtons]);
 
     return (
-        <div className={cn("relative w-full rounded-lg bg-background border font-mono text-sm overflow-hidden group")}>
+        <div className={cn("relative w-full rounded-lg bg-background border font-mono text-sm overflow-hidden group", className)}>
             {isLoading ? (
                 <div className={"min-h-32 w-full flex items-center justify-center"}>
                     <Loader2 className={"h-6 w-6 animate-spin"} />
@@ -201,12 +201,12 @@ export const CodeBlock = ({
                     </div>
 
                     {shouldShowButtons && showExpandCollapseButtons && (
-                        <div className={cn("absolute bottom-0 left-0 flex items-center justify-center w-full py-2 gap-2")}>
+                        <div className={cn("absolute bottom-0 left-0 flex items-center justify-center w-full py-4 gap-2", isExpanded ? "" : "bg-gradient-to-t from-background to-transparent")}>
                             {!isExpanded ? (
                                 <Button
                                     variant={buttonVariant}
                                     onClick={() => setIsExpanded(true)}
-                                    className={cn("text-xs font-semibold flex items-center gap-2 border")}
+                                    className={"text-xs font-semibold flex items-center gap-2 border"}
                                 >
                                     Expand <ChevronDown size={14} />
                                 </Button>
@@ -214,7 +214,7 @@ export const CodeBlock = ({
                                 <Button
                                     variant={buttonVariant}
                                     onClick={() => setIsExpanded(false)}
-                                    className={cn("text-xs font-semibold flex items-center gap-2 border")}
+                                    className={"text-xs font-semibold flex items-center gap-2 border"}
                                 >
                                     Collapse <ChevronUp size={14} />
                                 </Button>
