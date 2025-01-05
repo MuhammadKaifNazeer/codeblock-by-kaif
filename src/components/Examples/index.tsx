@@ -6,6 +6,7 @@ import { HightlighterCodeBlock } from './highlighterCodeBlock';
 import { CodeBlockWithoutFileName } from './codeBlockWithoutFIleName';
 import { CodeBlockWithoutLineNumbers } from './codeBlockWithoutLineNumbers';
 import { CodeBlockWithoutCopyButton } from './codeBlockWithoutCopyButton';
+import { OnHoverCopyButtonCodeBlock } from './onHoverCopyButtonCodeBlock';
 
 const Examples = () => {
     return (
@@ -17,6 +18,7 @@ const Examples = () => {
             <CodeBlockWithoutFileName />
             <CodeBlockWithoutLineNumbers />
             <CodeBlockWithoutCopyButton />
+            <OnHoverCopyButtonCodeBlock/>
         </div>
     )
 }

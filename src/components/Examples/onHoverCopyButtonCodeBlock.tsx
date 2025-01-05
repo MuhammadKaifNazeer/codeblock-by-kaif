@@ -1,25 +1,24 @@
 import React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function CodeBlockWithoutCopyButton() {
+export function OnHoverCopyButtonCodeBlock() {
     const code = `import React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function CodeBlockWithoutCopyButton() {
+export function OnHoverCopyButtonCodeBlock() {
     const code = \`import React from 'react'
 
-const ContactPage = () => {
+const BlogPage = () => {
     return (
-        <div>This is the Contact Page</div>
+        <div>This is the Blog Page</div>
     )
 }
 
-export default ContactPage\`;
+export default BlogPage\`;
 
     return (
         <CodeBlock
             language="jsx"
-            filename="CodeBlockWithoutCopyButton.tsx"
             code={code}
             copyButton={false}
         />
@@ -29,9 +28,8 @@ export default ContactPage\`;
     return (
         <CodeBlock
             language="jsx"
-            filename="CodeBlockWithoutCopyButton.tsx"
             code={code}
-            copyButton={false}
+            copyButtonVisibility={"onHover"}
         />
     );
 }
