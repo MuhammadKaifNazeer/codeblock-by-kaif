@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggler";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
-import { ChevronRight, Code, Layers, Paintbrush, Layout } from "lucide-react";
+import { Code, Layers, Paintbrush, Layout } from "lucide-react";
 
 export default function HeroSection() {
     return (
@@ -11,7 +11,7 @@ export default function HeroSection() {
                 <div className="flex items-center justify-between">
                     <Link href="/">
                         <h1 className="text-4xl font-bold inline-flex items-center gap-3">
-                            CodeCast
+                            CodeLoom
                         </h1>
                     </Link>
                     <ThemeToggle />
