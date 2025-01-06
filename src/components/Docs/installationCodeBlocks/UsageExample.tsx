@@ -1,12 +1,11 @@
 import React from "react";
-
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function UsageExampleCodeBlock() {
+export function CodeBlockUsageExample() {
     const code = `import React from "react";
 import { CodeBlock } from "@/components/ui/code-block";
 
-export function UsageExampleCodeBlock() {
+export function CodeBlockUsageExample() {
     const code = \`import React from "react";
 
     const HomePage = () => {

@@ -5,7 +5,7 @@ import { UtilFileCodeBlock } from './installationCodeBlocks/utilFile';
 import { ThemProviderCodeBlock } from './installationCodeBlocks/ThemeProvider';
 import { RootLayoutCodeBlock } from './installationCodeBlocks/RootLayout';
 import { SourceCodeCodeBlock } from './installationCodeBlocks/SourceCode';
-import { UsageExampleCodeBlock } from './installationCodeBlocks/UsageExample';
+import { CodeBlockUsageExample } from './installationCodeBlocks/UsageExample';
 
 const InstallationGuide = () => {
 
@@ -56,7 +56,7 @@ const InstallationGuide = () => {
                     <Step title="Use CodeBlock">
                         Implement the `CodeBlock` component for displaying code snippets in your project. This component will allow you to showcase code with syntax highlighting:
                         <div className='mt-4'>
-                            <UsageExampleCodeBlock />
+                            <CodeBlockUsageExample />
                         </div>
                     </Step>
                 </Steps>

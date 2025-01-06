@@ -22,7 +22,7 @@ const Examples = () => {
             <CodeBlockWithoutCopyButton />
             <OnHoverCopyButtonCodeBlock />
             <ButtonVariantsCodeBlock />
-            <CodeBlockWithoutExtendCollapseButtons/>
+            <CodeBlockWithoutExtendCollapseButtons />
         </div>
     )
 }
