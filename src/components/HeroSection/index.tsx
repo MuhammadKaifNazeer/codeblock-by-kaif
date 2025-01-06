@@ -11,7 +11,7 @@ export default function HeroSection() {
                 <div className="flex items-center justify-between">
                     <Link href="/">
                         <h1 className="text-4xl font-bold inline-flex items-center gap-3">
-                            CodeLoom
+                            LoomCode
                         </h1>
                     </Link>
                     <ThemeToggle />
@@ -27,7 +27,7 @@ export default function HeroSection() {
 
             <div className="flex min-h-0 gap-y-2 justify-start gap-x-4 items-center">
                 <h2 className="text-sm">Want to make it better?</h2>
-                <Link href={'/'}>
+                <Link href={'https://github.com/MuhammadKaifNazeer/loom-code'}>
                     <Badge variant="outline" className={"text-green-500 border-green-500"}>
                         Github
                     </Badge>

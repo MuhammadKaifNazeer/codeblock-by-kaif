@@ -14,14 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CodeLoom - Seamless Code Presentation for Developers",
+  title: "LoomCode - Seamless Code Presentation for Developers",
   description:
-    "Discover CodeLoom, the ultimate React component for showcasing code snippets with advanced features like syntax highlighting, multi-tab views, line highlighting, and dark/light mode themes. Elevate your developer-focused apps and tutorials with ease.",
+    "Discover LoomCode, the ultimate React component for showcasing code snippets with advanced features like syntax highlighting, multi-tab views, line highlighting, and dark/light mode themes. Elevate your developer-focused apps and tutorials with ease.",
   icons: {
     icon: "/favicon.ico",
   },
   keywords: [
-    "CodeLoom",
+    "LoomCode",
     "React code block component",
     "Code presentation",
     "Syntax highlighting",
@@ -50,22 +50,22 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: "https://codeloom.vercel.app/",
-    title: "CodeLoom - Seamless Code Presentation for Developers",
+    url: "https://loomcode.vercel.app/",
+    title: "LoomCode - Seamless Code Presentation for Developers",
     description:
-      "Discover CodeLoom, the ultimate React component for showcasing code snippets with advanced features like syntax highlighting, multi-tab views, line highlighting, and dark/light mode themes. Elevate your developer-focused apps and tutorials with ease.",
-    siteName: "CodeLoom",
+      "Discover LoomCode, the ultimate React component for showcasing code snippets with advanced features like syntax highlighting, multi-tab views, line highlighting, and dark/light mode themes. Elevate your developer-focused apps and tutorials with ease.",
+    siteName: "LoomCode",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "CodeLoom - Seamless Code Presentation for Developers",
+        alt: "LoomCode - Seamless Code Presentation for Developers",
       },
     ],
   },
   alternates: {
-    canonical: "https://codeloom.vercel.app/",
+    canonical: "https://loomcode.vercel.app/",
   },
 };
 
