@@ -27,7 +27,7 @@ export default function HeroSection() {
 
             <div className="flex min-h-0 gap-y-2 justify-start gap-x-4 items-center">
                 <h2 className="text-sm">Want to make it better?</h2>
-                <Link href={'https://github.com/MuhammadKaifNazeer/loom-code'}>
+                <Link href={'https://github.com/MuhammadKaifNazeer/loom-code'} target="_blank">
                     <Badge variant="outline" className={"text-green-500 border-green-500"}>
                         Github
                     </Badge>
