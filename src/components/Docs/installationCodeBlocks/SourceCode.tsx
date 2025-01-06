@@ -62,7 +62,8 @@ export const CodeBlock = ({
 
     useEffect(() => {
         setCurrentTheme(resolvedTheme || theme);
-        const timer = setTimeout(() => setIsLoading(false), 1000);
+        const timeout = setTimeout(() => setIsLoading(false), 1000);
+        return () => clearTimeout(timeout);
     }, [theme, resolvedTheme]);
 
     const isDarkTheme = currentTheme === "dark";
